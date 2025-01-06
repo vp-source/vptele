@@ -58,72 +58,23 @@ Visualization Manager:
       Class: rviz/RobotModel
       Collision Enabled: false
       Enabled: true
+      # ---------------------------
+      # The RobotModel changes start here:
       Links:
         All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
+
+        # Keep base_link
         base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: false
-        head_base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        head_depth_cam_mount_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_armrot_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_ear_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_elbow_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_forearm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_forearm_pitch_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_forearm_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_forearmrot_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_hand_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
+
+        # Left arm
         left_shoul_base_link:
           Alpha: 1
           Show Axes: false
@@ -144,56 +95,43 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        neck_pitch_link:
+        left_armrot_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        neck_yaw_link:
+        left_elbow_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_armrot_link:
+        left_forearm_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_ear_link:
+        left_forearmrot_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_elbow_link:
+        left_forearm_pitch_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_forearm_link:
+        left_forearm_roll_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_forearm_pitch_link:
+        left_hand_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        right_forearm_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_forearmrot_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_hand_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
+
+        # Right arm
         right_shoul_base_link:
           Alpha: 1
           Show Axes: false
@@ -214,26 +152,89 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        right_armrot_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_elbow_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_forearmrot_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_forearm_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_forearm_roll_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_hand_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+
+        # Everything else turned off
+        camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        head_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        head_depth_cam_mount_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        neck_pitch_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
+        neck_yaw_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
         torso_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         torso_pitch_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         torso_roll_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
         torso_yaw_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
+          Value: false
+      # ---------------------------
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
