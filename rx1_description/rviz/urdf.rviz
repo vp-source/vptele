@@ -206,8 +206,6 @@ Visualization Manager:
           Value: true
         head_base_link:
           Value: true
-        head_depth_cam_mount_link:
-          Value: true
         left_armrot_link:
           Value: true
         left_elbow_link:
@@ -229,10 +227,6 @@ Visualization Manager:
         left_shoul_rot_link:
           Value: true
         left_upper_arm_link:
-          Value: true
-        neck_pitch_link:
-          Value: true
-        neck_yaw_link:
           Value: true
         right_armrot_link:
           Value: true
