@@ -30,14 +30,12 @@
   </link>
   <link name="torso_link">
     <inertial>
-      <!-- Passen Sie die Trägheitswerte und Masse nach Bedarf an -->
       <mass value="1.0"/>
       <inertia ixx="0.00839643176338393" ixy="0.0" ixz="0.0" 
                iyy="0.003718667304595339" iyz="0.0" izz="0.005448431209219654"/>
     </inertial>
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
-      <!-- Ersetzen Sie durch ein passendes Mesh für den Torso -->
       <geometry>
         <mesh filename="package://rx1_description/meshes/torso_link.stl"/>
       </geometry>
@@ -52,7 +50,7 @@
   </link>
   <joint name="base2torso_joint" type="fixed">
     <!-- Passen Sie xyz/rpy nach Bedarf an -->
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5825"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.1"/>
     <parent link="base_link"/>
     <child link="torso_link"/>
   </joint>
@@ -78,7 +76,7 @@
   </link>
   <joint name="torso2head_base_joint" type="fixed">
     <!-- Passen Sie xyz/rpy entsprechend an -->
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.21"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 4.385"/>
     <parent link="torso_link"/>
     <child link="head_base_link"/>
   </joint>
