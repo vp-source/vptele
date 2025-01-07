@@ -69,27 +69,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: false
         head_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        head_depth_cam_mount_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         left_armrot_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_ear_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -144,22 +129,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        neck_pitch_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        neck_yaw_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         right_armrot_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_ear_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -249,15 +219,11 @@ Visualization Manager:
         All Enabled: false
         base_link:
           Value: true
-        camera_link:
-          Value: false
         head_base_link:
           Value: true
         head_depth_cam_mount_link:
           Value: true
         left_armrot_link:
-          Value: true
-        left_ear_link:
           Value: true
         left_elbow_link:
           Value: true
@@ -284,8 +250,6 @@ Visualization Manager:
         neck_yaw_link:
           Value: true
         right_armrot_link:
-          Value: true
-        right_ear_link:
           Value: true
         right_elbow_link:
           Value: true
@@ -340,15 +304,6 @@ Visualization Manager:
                                       left_forearm_roll_link:
                                         left_hand_link:
                                           {}
-                    neck_yaw_link:
-                      neck_pitch_link:
-                        head_depth_cam_mount_link:
-                          camera_link:
-                            {}
-                          left_ear_link:
-                            {}
-                          right_ear_link:
-                            {}
                     right_shoul_base_link:
                       right_shoul_link:
                         right_shoul_rot_link:
