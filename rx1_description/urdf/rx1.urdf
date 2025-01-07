@@ -28,7 +28,7 @@
     </collision>
   </link>
 
-  <link name="torso_link">
+  <link name="head_base_link">
     <inertial>
       <mass value="0.05"/>
       <inertia ixx="3.4733338386813986e-05" ixy="0.0" ixz="0.0" iyy="2.3066669137279266e-05" iyz="0.0" izz="4.1666671633720553e-05"/>
@@ -36,22 +36,22 @@
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://rx1_description/meshes/torso_link.stl"/>
+        <mesh filename="package://rx1_description/meshes/head/head_base_link.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://rx1_description/meshes/torso_link.stl"/>
+        <mesh filename="package://rx1_description/meshes/head/head_base_link.stl"/>
       </geometry>
     </collision>
   </link>
 
-  <joint name="base2torso_link_joint" type="fixed">
+  <joint name="base2head_base_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.7925"/>
     <parent link="base_link"/>
-    <child link="torso_link"/>
+    <child link="head_base_link"/>
   </joint>
 
   <link name="right_shoul_base_link">
@@ -74,9 +74,9 @@
     </collision>
   </link>
 
-  <joint name="torso_link2right_shoul_base_joint" type="fixed">
+  <joint name="head_base2right_shoul_base_joint" type="fixed">
     <origin rpy="1.04706195 0.0 0.0" xyz="0.0 -0.12 -0.05"/>
-    <parent link="torso_link"/>
+    <parent link="head_base_link"/>
     <child link="right_shoul_base_link"/>
   </joint>
 
@@ -381,9 +381,9 @@
     </collision>
   </link>
 
-  <joint name="torso_link2left_shoul_base_joint" type="fixed">
+  <joint name="head_base2left_shoul_base_joint" type="fixed">
     <origin rpy="-1.04706195 0.0 0.0" xyz="0.0 0.12 -0.05"/>
-    <parent link="torso_link"/>
+    <parent link="head_base_link"/>
     <child link="left_shoul_base_link"/>
   </joint>
 
@@ -668,3 +668,4 @@
     <child link="left_hand_link"/>
   </joint>
 </robot>
+
