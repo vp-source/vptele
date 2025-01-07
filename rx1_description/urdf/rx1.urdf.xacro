@@ -46,90 +46,6 @@
     </link>
 
     <!--                            TORSO START                         -->
-    <link name="torso_yaw_link">
-        <inertial>
-            <mass value="5.0" />
-            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-        </inertial>
-        <visual>
-            <geometry>
-                <mesh filename="package://rx1_description/meshes/torso_yaw_link.stl"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-            <material name="white"/>
-        </visual>
-        <collision>
-            <geometry>
-                <mesh filename="package://rx1_description/meshes/torso_yaw_link.stl"/>
-            </geometry>
-            <origin rpy="0 0 0" xyz="0 0 0"/>
-        </collision>
-    </link>
-    <joint name="base2torso_yaw_joint" type="revolute">
-        <axis xyz="0 0 1" />
-        <limit effort="${motor_torque}" lower="${-0.5*pi}" upper="${0.5*pi}" velocity="${motor_vec}"/>
-        <dynamics damping="0.5" friction="5.0" />
-        <origin xyz="0 0 0.5825" rpy="0 0 0" />
-        <parent link="base_link" />
-        <child link="torso_yaw_link" />
-    </joint>
-
-    <link name="torso_pitch_link">
-        <inertial>
-            <mass value="0.5" />
-            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-        </inertial>
-        <visual>
-            <geometry>
-                <cylinder length="0.03" radius="0.015" />
-            </geometry>
-            <origin rpy="${0.5*pi} 0 0" xyz="0 0 0"/>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder length="0.03" radius="0.01" />
-            </geometry>
-            <origin rpy="${0.5*pi} 0 0" xyz="0 0 0"/>
-        </collision>
-    </link>
-    <joint name="torso_yaw2pitch_joint" type="revolute">
-        <axis xyz="0 1 0" />
-        <limit effort="${motor_torque}" lower="${-0.25*pi}" upper="${0.25*pi}" velocity="${motor_vec}"/>
-        <dynamics damping="0.5" friction="0.1" />
-        <origin xyz="0 0 0.15" rpy="0 0 0" />
-        <parent link="torso_yaw_link" />
-        <child link="torso_pitch_link" />
-    </joint>
-
-    <link name="torso_roll_link">
-        <inertial>
-            <mass value="0.5" />
-            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-        </inertial>
-        <visual>
-            <geometry>
-                <cylinder length="0.03" radius="0.015" />
-            </geometry>
-            <origin rpy="0 ${0.5*pi} 0" xyz="0 0 0"/>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder length="0.03" radius="0.01" />
-            </geometry>
-            <origin rpy="0 ${0.5*pi} 0" xyz="0 0 0"/>
-        </collision>
-    </link>
-    <joint name="torso_pitch2roll_joint" type="revolute">
-        <axis xyz="1 0 0" />
-        <limit effort="${motor_torque}" lower="${-0.25*pi}" upper="${0.25*pi}" velocity="${motor_vec}"/>
-        <dynamics damping="0.5" friction="0.1" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <parent link="torso_pitch_link" />
-        <child link="torso_roll_link" />
-    </joint>
-    
     <link name="torso_link">
         <inertial>
             <mass value="1" />
@@ -151,11 +67,6 @@
             <origin rpy="0 0 0" xyz="0 0 0"/>
         </collision>
     </link>
-    <joint name="torso_roll2torso_joint" type="fixed">
-        <origin xyz="0 0 0.08" rpy="0 0 0" />
-        <parent link="torso_roll_link" />
-        <child link="torso_link" />
-    </joint>
     <!--                            TORSO END                         -->
 
     <!--                            HEAD START                        -->
