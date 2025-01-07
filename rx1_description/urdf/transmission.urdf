@@ -1,17 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="rx1">
 
-  <!-- Transmission for torso_pitch2roll_joint -->
-  <transmission name="torso_pitch2roll_trans">
-    <type>transmission_interface/SimpleTransmission</type>
-    <actuator name="torso_pitch2roll_motor">
-      <mechanicalReduction>1</mechanicalReduction>
-    </actuator>
-    <joint name="torso_pitch2roll_joint">
-      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    </joint>
-  </transmission>
-
   <!-- Transmission for right_shoul_base2shoul_joint -->
   <transmission name="right_shoul_base2shoul_trans">
     <type>transmission_interface/SimpleTransmission</type>

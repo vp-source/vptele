@@ -179,26 +179,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        torso_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        torso_pitch_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        torso_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        torso_yaw_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
@@ -262,14 +242,6 @@ Visualization Manager:
           Value: true
         right_upper_arm_link:
           Value: true
-        torso_link:
-          Value: true
-        torso_pitch_link:
-          Value: true
-        torso_roll_link:
-          Value: true
-        torso_yaw_link:
-          Value: true
       Marker Alpha: 1
       Marker Scale: 0.30000001192092896
       Name: TF
@@ -278,23 +250,19 @@ Visualization Manager:
       Show Names: true
       Tree:
         base_link:
-          torso_yaw_link:
-            torso_pitch_link:
-              torso_roll_link:
-                torso_link:
-                  head_base_link:
-                    left_shoul_base_link:
-                      left_shoul_link:
-                        left_shoul_rot_link:
-                          left_upper_arm_link:
-                            left_armrot_link:
-                              left_elbow_link:
-                                left_forearm_link:
-                                  left_forearmrot_link:
-                                    left_forearm_pitch_link:
-                                      left_forearm_roll_link:
-                                        left_hand_link:
-                                          {}
+          head_base_link:
+            left_shoul_base_link:
+              left_shoul_link:
+                left_shoul_rot_link:
+                  left_upper_arm_link:
+                    left_armrot_link:
+                      left_elbow_link:
+                        left_forearm_link:
+                          left_forearmrot_link:
+                            left_forearm_pitch_link:
+                              left_forearm_roll_link:
+                                left_hand_link:
+                                  {}
                     
                     right_shoul_base_link:
                       right_shoul_link:
