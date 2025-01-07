@@ -36,14 +36,14 @@
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://rx1_description/meshes/head/head_base_link.stl"/>
+        <mesh filename="package://rx1_description/meshes/head/torso_link.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
       <geometry>
-        <mesh filename="package://rx1_description/meshes/head/head_base_link.stl"/>
+        <mesh filename="package://rx1_description/meshes/head/torso_link.stl"/>
       </geometry>
     </collision>
   </link>
