@@ -49,8 +49,7 @@
     </collision>
   </link>
   <joint name="base2torso_joint" type="fixed">
-    <!-- Passen Sie xyz/rpy nach Bedarf an -->
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.1"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5825"/>
     <parent link="base_link"/>
     <child link="torso_link"/>
   </joint>
@@ -75,8 +74,7 @@
     </collision>
   </link>
   <joint name="torso2head_base_joint" type="fixed">
-    <!-- Passen Sie xyz/rpy entsprechend an -->
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 4.385"/>
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.21"/>
     <parent link="torso_link"/>
     <child link="head_base_link"/>
   </joint>
@@ -694,4 +692,3 @@
     <child link="left_hand_link"/>
   </joint>
 </robot>
-
