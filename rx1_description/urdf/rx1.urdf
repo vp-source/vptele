@@ -9,6 +9,7 @@
   <material name="blue">
     <color rgba="0.0 0.0 1.0 1.0"/>
   </material>
+
   <link name="base_link">
     <inertial>
       <mass value="5.0"/>
@@ -26,11 +27,7 @@
       </geometry>
     </collision>
   </link>
-  <joint name="base2head_base" type="fixed">
-    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5825"/>
-    <parent link="base_link"/>
-    <child link="head_base"/>
-  </joint>
+
   <link name="head_base_link">
     <inertial>
       <mass value="0.05"/>
@@ -50,10 +47,17 @@
       </geometry>
     </collision>
   </link>
+
+  <joint name="base2head_base_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.7925"/> 
+    <parent link="base_link"/>
+    <child link="head_base_link"/>
+  </joint>
+
   <link name="right_shoul_base_link">
     <inertial>
       <mass value="0.2"/>
-      <inertia ixx="0.00011374999999999999" ixy="0.0" ixz="0.0" iyy="0.00011374999999999999" iyz="0.0" izz="4e-05"/>
+      <inertia ixx="0.00011375" ixy="0.0" ixz="0.0" iyy="0.00011375" iyz="0.0" izz="4e-05"/>
     </inertial>
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0375"/>
@@ -69,11 +73,13 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="head_base2right_shoul_base_joint" type="fixed">
     <origin rpy="1.04706195 0.0 0.0" xyz="0.0 -0.12 -0.05"/>
     <parent link="head_base_link"/>
     <child link="right_shoul_base_link"/>
   </joint>
+
   <link name="right_shoul_link">
     <inertial>
       <mass value="0.2"/>
@@ -93,14 +99,16 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_shoul_base2shoul_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.075"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="right_shoul_base_link"/>
     <child link="right_shoul_link"/>
-    <limit effort="50.0" lower="-2.5132000000000003" upper="2.5132000000000003" velocity="15.0"/>
+    <limit effort="50.0" lower="-2.5132" upper="2.5132" velocity="15.0"/>
     <dynamics damping="0.5" friction="0.1"/>
   </joint>
+
   <link name="right_shoul_rot_link">
     <inertial>
       <mass value="0.2"/>
@@ -120,14 +128,16 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_shoul2shoul_rot_joint" type="revolute">
     <origin rpy="-1.04706195 0.0 0.0" xyz="0.0 0.0 0.08"/>
     <axis xyz="1.0 0.0 0.0"/>
     <parent link="right_shoul_link"/>
     <child link="right_shoul_rot_link"/>
-    <limit effort="50.0" lower="-1.57075" upper="0.5026400000000001" velocity="15.0"/>
+    <limit effort="50.0" lower="-1.57075" upper="0.50264" velocity="15.0"/>
     <dynamics damping="0.5" friction="0.1"/>
   </joint>
+
   <link name="right_upper_arm_link">
     <inertial>
       <mass value="0.1"/>
@@ -147,11 +157,13 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_shoul_rot2upper_arm_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0625"/>
     <parent link="right_shoul_rot_link"/>
     <child link="right_upper_arm_link"/>
   </joint>
+
   <link name="right_armrot_link">
     <inertial>
       <mass value="0.1"/>
@@ -171,6 +183,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_arm2armrot_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0625"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -179,6 +192,7 @@
     <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="right_elbow_link">
     <inertial>
       <mass value="0.1"/>
@@ -198,6 +212,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_armrot2elbow_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.22"/>
     <axis xyz="0.0 1.0 0.0"/>
@@ -206,6 +221,7 @@
     <limit effort="50.0" lower="-2.19905" upper="0.0" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="right_forearm_link">
     <inertial>
       <mass value="0.1"/>
@@ -225,11 +241,13 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_elbow2forearm_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.045"/>
     <parent link="right_elbow_link"/>
     <child link="right_forearm_link"/>
   </joint>
+
   <link name="right_forearmrot_link">
     <inertial>
       <mass value="0.1"/>
@@ -249,6 +267,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_forearm2forearmrot_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.045"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -257,6 +276,7 @@
     <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="right_forearm_pitch_link">
     <inertial>
       <mass value="0.1"/>
@@ -276,6 +296,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_forearmrot2forearm_pitch_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.18"/>
     <axis xyz="0.0 1.0 0.0"/>
@@ -284,6 +305,7 @@
     <limit effort="50.0" lower="-0.785375" upper="0.785375" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="right_forearm_roll_link">
     <inertial>
       <mass value="0.1"/>
@@ -303,6 +325,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_forearm_pitch2forearm_roll_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     <axis xyz="1.0 0.0 0.0"/>
@@ -311,6 +334,7 @@
     <limit effort="50.0" lower="-0.785375" upper="0.785375" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="right_hand_link">
     <inertial>
       <mass value="0.1"/>
@@ -330,15 +354,17 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="right_forearm_roll2hand_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.1"/>
     <parent link="right_forearm_roll_link"/>
     <child link="right_hand_link"/>
   </joint>
+
   <link name="left_shoul_base_link">
     <inertial>
       <mass value="0.2"/>
-      <inertia ixx="0.00011374999999999999" ixy="0.0" ixz="0.0" iyy="0.00011374999999999999" iyz="0.0" izz="4e-05"/>
+      <inertia ixx="0.00011375" ixy="0.0" ixz="0.0" iyy="0.00011375" iyz="0.0" izz="4e-05"/>
     </inertial>
     <visual>
       <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0375"/>
@@ -354,11 +380,13 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="head_base2left_shoul_base_joint" type="fixed">
     <origin rpy="-1.04706195 0.0 0.0" xyz="0.0 0.12 -0.05"/>
     <parent link="head_base_link"/>
     <child link="left_shoul_base_link"/>
   </joint>
+
   <link name="left_shoul_link">
     <inertial>
       <mass value="0.2"/>
@@ -378,14 +406,16 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_shoul_base2shoul_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.075"/>
     <axis xyz="0.0 0.0 1.0"/>
     <parent link="left_shoul_base_link"/>
     <child link="left_shoul_link"/>
-    <limit effort="50.0" lower="-2.5132000000000003" upper="2.5132000000000003" velocity="15.0"/>
+    <limit effort="50.0" lower="-2.5132" upper="2.5132" velocity="15.0"/>
     <dynamics damping="0.5" friction="0.1"/>
   </joint>
+
   <link name="left_shoul_rot_link">
     <inertial>
       <mass value="0.2"/>
@@ -405,14 +435,16 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_shoul2shoul_rot_joint" type="revolute">
     <origin rpy="1.04706195 0.0 0.0" xyz="0.0 0.0 0.08"/>
     <axis xyz="1.0 0.0 0.0"/>
     <parent link="left_shoul_link"/>
     <child link="left_shoul_rot_link"/>
-    <limit effort="50.0" lower="-0.5026400000000001" upper="1.57075" velocity="15.0"/>
+    <limit effort="50.0" lower="-0.50264" upper="1.57075" velocity="15.0"/>
     <dynamics damping="0.5" friction="0.1"/>
   </joint>
+
   <link name="left_upper_arm_link">
     <inertial>
       <mass value="0.1"/>
@@ -432,11 +464,13 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_shoul_rot2upper_arm_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0625"/>
     <parent link="left_shoul_rot_link"/>
     <child link="left_upper_arm_link"/>
   </joint>
+
   <link name="left_armrot_link">
     <inertial>
       <mass value="0.1"/>
@@ -456,6 +490,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_arm2armrot_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.0625"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -464,6 +499,7 @@
     <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="left_elbow_link">
     <inertial>
       <mass value="0.1"/>
@@ -483,6 +519,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_armrot2elbow_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.22"/>
     <axis xyz="0.0 1.0 0.0"/>
@@ -491,6 +528,7 @@
     <limit effort="50.0" lower="-2.19905" upper="0.0" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="left_forearm_link">
     <inertial>
       <mass value="0.1"/>
@@ -510,11 +548,13 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_elbow2forearm_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.045"/>
     <parent link="left_elbow_link"/>
     <child link="left_forearm_link"/>
   </joint>
+
   <link name="left_forearmrot_link">
     <inertial>
       <mass value="0.1"/>
@@ -534,6 +574,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_forearm2forearmrot_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.045"/>
     <axis xyz="0.0 0.0 1.0"/>
@@ -542,6 +583,7 @@
     <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="left_forearm_pitch_link">
     <inertial>
       <mass value="0.1"/>
@@ -561,6 +603,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_forearmrot2forearm_pitch_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.18"/>
     <axis xyz="0.0 1.0 0.0"/>
@@ -569,6 +612,7 @@
     <limit effort="50.0" lower="-0.785375" upper="0.785375" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="left_forearm_roll_link">
     <inertial>
       <mass value="0.1"/>
@@ -588,6 +632,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_forearm_pitch2forearm_roll_joint" type="revolute">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
     <axis xyz="1.0 0.0 0.0"/>
@@ -596,6 +641,7 @@
     <limit effort="50.0" lower="-0.785375" upper="0.785375" velocity="15.0"/>
     <dynamics damping="0.1" friction="0.1"/>
   </joint>
+
   <link name="left_hand_link">
     <inertial>
       <mass value="0.1"/>
@@ -615,6 +661,7 @@
       </geometry>
     </collision>
   </link>
+
   <joint name="left_forearm_roll2hand_joint" type="fixed">
     <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 -0.1"/>
     <parent link="left_forearm_roll_link"/>
