@@ -45,6 +45,11 @@
       </geometry>
     </collision>
   </link>
+  <joint name="base_link2right_shoul_base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_shoul_base_link"/>
+  </joint>
   <link name="right_shoul_link">
     <inertial>
       <mass value="0.2"/>
@@ -325,6 +330,11 @@
       </geometry>
     </collision>
   </link>
+  <joint name="base_link2left_shoul_base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_shoul_base_link"/>
+  </joint>
   <link name="left_shoul_link">
     <inertial>
       <mass value="0.2"/>
