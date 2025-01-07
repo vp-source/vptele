@@ -26,6 +26,111 @@
       </geometry>
     </collision>
   </link>
+  <link name="torso_yaw_link">
+    <inertial>
+      <mass value="5.0"/>
+      <inertia ixx="0.044260708541198714" ixy="0.0" ixz="0.0" iyy="0.03589014892499002" iyz="0.0" izz="0.018270645342993348"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/torso_yaw_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/torso_yaw_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="base2torso_yaw_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5825"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <parent link="base_link"/>
+    <child link="torso_yaw_link"/>
+    <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
+    <dynamics damping="0.5" friction="5.0"/>
+  </joint>
+  <link name="torso_pitch_link">
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="6.5625e-05" ixy="0.0" ixz="0.0" iyy="6.5625e-05" iyz="0.0" izz="5.625e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57075 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.015"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <origin rpy="1.57075 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_yaw2pitch_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.15"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="torso_yaw_link"/>
+    <child link="torso_pitch_link"/>
+    <limit effort="50.0" lower="-0.785375" upper="0.785375" velocity="15.0"/>
+    <dynamics damping="0.5" friction="0.1"/>
+  </joint>
+  <link name="torso_roll_link">
+    <inertial>
+      <mass value="0.5"/>
+      <inertia ixx="6.5625e-05" ixy="0.0" ixz="0.0" iyy="6.5625e-05" iyz="0.0" izz="5.625e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 1.57075 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.015"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 1.57075 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="0.03" radius="0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_pitch2roll_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <parent link="torso_pitch_link"/>
+    <child link="torso_roll_link"/>
+    <limit effort="50.0" lower="-0.785375" upper="0.785375" velocity="15.0"/>
+    <dynamics damping="0.5" friction="0.1"/>
+  </joint>
+  <link name="torso_link">
+    <inertial>
+      <mass value="1.0"/>
+      <inertia ixx="0.00839643176338393" ixy="0.0" ixz="0.0" iyy="0.003718667304595339" iyz="0.0" izz="0.005448431209219654"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/torso_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/torso_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="torso_roll2torso_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.08"/>
+    <parent link="torso_roll_link"/>
+    <child link="torso_link"/>
+  </joint>
   <link name="head_base_link">
     <inertial>
       <mass value="0.05"/>
@@ -45,6 +150,170 @@
       </geometry>
     </collision>
   </link>
+  <joint name="torso2head_base_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.21"/>
+    <parent link="torso_link"/>
+    <child link="head_base_link"/>
+  </joint>
+  <link name="neck_yaw_link">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="2.6332792163843353e-05" ixy="0.0" ixz="0.0" iyy="3.551715988694438e-05" iyz="0.0" izz="2.3884367326730143e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/neck_yaw_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/neck_yaw_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_base2neck_yaw_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+    <axis xyz="0.0 0.0 1.0"/>
+    <parent link="head_base_link"/>
+    <child link="neck_yaw_link"/>
+    <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
+    <dynamics damping="0.5" friction="0.1"/>
+  </joint>
+  <link name="neck_pitch_link">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="9.366899537678521e-05" ixy="0.0" ixz="0.0" iyy="9.765486239335953e-05" iyz="0.0" izz="2.9194203491569232e-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/neck_pitch_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/neck_pitch_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="neck_yaw2pitch_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.035"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="neck_yaw_link"/>
+    <child link="neck_pitch_link"/>
+    <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
+    <dynamics damping="0.5" friction="0.1"/>
+  </joint>
+  <link name="head_depth_cam_mount_link">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="0.00011445736975046934" ixy="0.0" ixz="0.0" iyy="4.306387919284874e-05" iyz="0.0" izz="0.00011610652434354089"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/head_depth_cam_mount_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/head_depth_cam_mount_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="neck_pitch2head_depth_cam_mount_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="-0.01 0.0 0.1"/>
+    <axis xyz="1.0 0.0 0.0"/>
+    <parent link="neck_pitch_link"/>
+    <child link="head_depth_cam_mount_link"/>
+    <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link name="camera_link">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="8.333333333333333e-07" ixy="0.0" ixz="0.0" iyy="8.333333333333333e-07" iyz="0.0" izz="8.333333333333333e-07"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_depth_cam_mount2camera_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0.05 0.0 0.03"/>
+    <parent link="head_depth_cam_mount_link"/>
+    <child link="camera_link"/>
+  </joint>
+  <link name="right_ear_link">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="7.075414581789501e-05" ixy="0.0" ixz="0.0" iyy="7.708227986119268e-05" iyz="0.0" izz="7.00313496307216e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/right_ear_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/right_ear_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_depth_cam_mount2right_ear_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.065 0.045"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="head_depth_cam_mount_link"/>
+    <child link="right_ear_link"/>
+    <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
+  <link name="left_ear_link">
+    <inertial>
+      <mass value="0.05"/>
+      <inertia ixx="7.075414588774426e-05" ixy="0.0" ixz="0.0" iyy="7.708227861952545e-05" iyz="0.0" izz="7.003133791254161e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/left_ear_link.stl"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <mesh filename="package://rx1_description/meshes/head/left_ear_link.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="head_depth_cam_mount2left_ear_joint" type="revolute">
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.065 0.045"/>
+    <axis xyz="0.0 1.0 0.0"/>
+    <parent link="head_depth_cam_mount_link"/>
+    <child link="left_ear_link"/>
+    <limit effort="50.0" lower="-1.57075" upper="1.57075" velocity="15.0"/>
+    <dynamics damping="0.1" friction="0.0"/>
+  </joint>
   <link name="right_shoul_base_link">
     <inertial>
       <mass value="0.2"/>
